@@ -30,6 +30,9 @@ class SeederGenerator
         else{
             foreach ($tables as $table) {
                 $data = $this->getTableData($table);
+                if (empty($data)) {
+                    continue;
+                }
                 $seederFileContent = $this->generateSeederFile($table, $data);
 
                 $this->saveSeederFile($table, $seederFileContent);
@@ -127,5 +130,5 @@ class SeederGenerator
         }
     }
 }
-        
+
 
